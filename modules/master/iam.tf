@@ -134,5 +134,5 @@ resource "aws_iam_policy" "policy" {
 
 resource "aws_iam_role_policy_attachment" "eks-load-balancer-controller" {
   policy_arn = aws_iam_policy.policy.arn
-  role = aws_iam_role.eks_cluster_role.name
+  role = aws_iam_role.eks_role.name
 }
