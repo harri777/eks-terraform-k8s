@@ -21,6 +21,11 @@ Strategy on how to create a k8s cluster in aws AWS EKS
   aws eks --region us-east-1 update-kubeconfig --name my-cluster
 ```
 
+## Destroy
+```
+  terraform destroy
+```
+
 ## Get nodes
 ```
   kubctl get nodes
