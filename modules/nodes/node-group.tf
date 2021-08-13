@@ -16,8 +16,10 @@ resource "aws_eks_node_group" "cluster" {
     min_size        = lookup(var.auto_scale_options, "min")
   }
 
-  tags = {
-    "kubernetes.io/cluster/${var.cluster_name}" = "owned"
-  }
+  depends_on = [
+    aws_iam_role_policy_attachment.eks_AmazonEKSWorkerNodePolicy,
+    aws_iam_role_policy_attachment.eks_AmazonEKS_CNI_Policy,
+    aws_iam_role_policy_attachment.eks_AmazonEC2ContainerRegistryReadOnly
+  ]
 
 }
