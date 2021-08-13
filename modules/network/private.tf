@@ -21,3 +21,13 @@ resource "aws_subnet" "private_subnet_1b" {
 		"kubernetes.io/cluster/${var.cluster_name}" = "shared"
 	}
 }
+
+resource "aws_route_table_association" "private1a" {
+  subnet_id = aws_subnet.private_subnet_1a.id
+  route_table_id = aws_route_table.nat.id
+}
+
+resource "aws_route_table_association" "private1b" {
+  subnet_id = aws_subnet.private_subnet_1b.id
+  route_table_id = aws_route_table.nat.id
+}
